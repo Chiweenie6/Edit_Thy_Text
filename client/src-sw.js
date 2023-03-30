@@ -53,7 +53,8 @@ self.addEventListener('fetch', async (event) => {
     }));
     return new Response("🚫 Netork Error 🚫", {
       status: 408,
-      headers: {"Content-Type": "text/plain"}
+      headers: {"Content-Type": "text/plain"},
+      fallbackUrl: "./src/images/logo.png"
     })
 });
 
