@@ -20,7 +20,7 @@ export const putDb = async (id, content) =>  {
   const store = newTransaction.objectStore("jate");
   const request = store.put({ id: id, text: content});
   const result = await request;
-  console.log("Text saved to the database 🥳")
+  console.log("Text saved to the database 🥳", result)
   console.error('🚫 putDb not implemented 🚫');
 };
 

@@ -26,7 +26,7 @@ module.exports = () => {
       // Webpack plugin to add service worker
       new InjectManifest({
         swSrc: "./src-sw.js",
-        swDest: "src-sw.js"
+        swDest: "src-sw.js",
       }),
       // Webpack plugin to create manifest.json file
       new WebpackPwaManifest({
@@ -51,17 +51,20 @@ module.exports = () => {
         // Adding CSS loader
         {
           test: /\.css$/i,
-          use: ['style-loader', 'css-loader'],
+          use: ["style-loader", "css-loader"],
         },
         {
           test: /\.m?js$/,
           exclude: /node_modules/,
           use: {
             // Adding Babel
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              presets: ['@babel/preset-env'],
-              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
+              presets: ["@babel/preset-env"],
+              plugins: [
+                "@babel/plugin-proposal-object-rest-spread",
+                "@babel/transform-runtime",
+              ],
             },
           },
         },
