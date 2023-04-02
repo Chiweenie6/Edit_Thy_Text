@@ -10,6 +10,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
 // TODO: Implement a click event handler on the `butInstall` element
 butInstall.addEventListener('click', async () => {
     butInstall.setAttribute("disabled", true);
+    console.log("👍 App Installed")
 });
 
 // TODO: Add an handler for the `appinstalled` event
