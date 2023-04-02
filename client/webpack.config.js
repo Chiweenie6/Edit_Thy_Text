@@ -23,13 +23,15 @@ module.exports = () => {
         template: "./index.html",
         title: "Webpack App",
       }),
-      // Webpack plugin to add service worker
+      // Webpack plugin to add service worker with source and destination
       new InjectManifest({
         swSrc: "./src-sw.js",
-        swDest: "src-sw.js",
+        swDest: "service-worker.js",
       }),
       // Webpack plugin to create manifest.json file
       new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
         name: "Text Editor",
         description: "This is a text editor",
         background_color: "grey",
@@ -40,7 +42,7 @@ module.exports = () => {
           {
             src: path.resolve("src/images/logo.png"),
             sizes: [72, 96, 128, 256],
-            destination: path.join("src", "icons"),
+            destination: path.join("assets", "icons"),
           },
         ],
       }),
