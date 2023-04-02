@@ -19,29 +19,52 @@ module.exports = () => {
       path: path.resolve(__dirname, "dist"),
     },
     plugins: [
+      // Webpack plugin to add and generate HTML
       new HtmlWebpackPlugin({
         template: "./index.html",
         title: "Webpack App",
       }),
-      new WorkboxPlugin.GenerateSW({
+      // Webpack plugin to add service worker
+      new InjectManifest({
+        swSrc: "./src-sw.js",
+        swDest: "src-sw.js",
         clientsClaim: true,
         skipWaiting: true,
+      }),
+      // Webpack plugin to create manifest.json file
+      new WebpackPwaManifest({
+        name: "Text Editor",
+        description: "This is a text editor",
+        background_color: "grey",
+        theme_color: "light-blue",
+        start_url: "./",
+        publicPath: "./",
+        icons: [
+          {
+            src: path.resolve("src/images.logo.png"),
+            sizes: [72, 96, 128, 256],
+            destination: path.join("assets", "icons"),
+          },
+        ],
       }),
     ],
 
     module: {
       rules: [
+        // Adding CSS loader
         {
           test: /\.css$/i,
-          use: ["style-loader", "css-loader"],
+          use: ['style-loader', 'css-loader'],
         },
         {
           test: /\.m?js$/,
-          exclude: /(node_modules|bower_components)/,
+          exclude: /node_modules/,
           use: {
-            loader: "babel-loader",
+            // Adding Babel
+            loader: 'babel-loader',
             options: {
-              presets: ["@babel/preset-env"],
+              presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
             },
           },
         },
