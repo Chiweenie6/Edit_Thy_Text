@@ -28,12 +28,14 @@ registerRoute(({ request }) => request.mode === "navigate", pageCache);
 
 // //Implementing asset caching
 
+console.log(pageCache + "🎈🎈🎈🎈");
+
 self.addEventListener("fetch", (event) => {
   // Check if this is a navigation request
   if (event.request.mode === "navigate") {
     // Open the cache
     event.respondWith(
-      caches.open(page-cache).then((cache) => {
+      caches.open(pageCache).then((cache) => {
         // Check the network first
         return fetch(event.request.url)
           .then((fetchedResponse) => {
@@ -67,5 +69,7 @@ self.addEventListener("fetch", (event) => {
 //     ],
 //   })
 // );
+
+
 
 registerRoute();

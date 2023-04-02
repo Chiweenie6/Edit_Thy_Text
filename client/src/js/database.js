@@ -1,5 +1,6 @@
 import { openDB } from "idb";
 
+// creating new database "jate"
 const initdb = async () =>
   openDB("jate", 1, {
     upgrade(db) {
@@ -58,4 +59,5 @@ export const deleteDb = async (id) => {
   return result;
 };
 
+// Initialize/start the database
 initdb();
