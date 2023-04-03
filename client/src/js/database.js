@@ -1,6 +1,6 @@
 import { openDB } from "idb";
 
-// creating new database "jate"
+// creating new database named "jate"
 const initdb = async () =>
   openDB("jate", 1, {
     upgrade(db) {
@@ -13,7 +13,7 @@ const initdb = async () =>
     },
   });
 
-// Gets all the content from the database
+// Gets all the saved content from the database
 export const getDb = async () => {
   console.log("Get all text 🥅");
   const jateDB = await openDB("jate", 1);
@@ -25,7 +25,7 @@ export const getDb = async () => {
   return result.value;
 };
 
-// Put accepts some content and adds it to the database
+// Put, accepts content that is typed into the editor and saves it to the database
 export const putDb = async (content) => {
   console.log("Put in Database 🎈");
   const jateDB = await openDB("jate", 1);
@@ -35,29 +35,6 @@ export const putDb = async (content) => {
   const result = await request;
   console.log("Text saved to the database 🥳", result);
 };
-
-// Post text to the database
-// export const postDb = async (content) => {
-//   console.log("✔️ Post Text");
-//   const jateDB = await openDB("jate", 1);
-//   const newTransaction = jateDB.transaction("jate", "readwrite");
-//   const store = newTransaction.objectStore("jate");
-//   const request = store.add({ jate: content });
-//   const result = await request;
-//   console.log("👍 Text saved to database", result);
-// };
-
-// Delete text from the database
-// export const deleteDb = async (id) => {
-//   console.log("🔥 Delete from database");
-//   const jateDB = await openDB("jate", 1);
-//   const newTransaction = jateDB.transaction("jate", "readwrite");
-//   const store = newTransaction.objectStore("jate");
-//   const request = store.delete(id);
-//   const result = await request;
-//   console.log("result.value", result);
-//   return result;
-// };
 
 // Initialize/start the database
 initdb();
