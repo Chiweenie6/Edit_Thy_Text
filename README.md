@@ -1,5 +1,5 @@
 # Edit_Thy_Text
-A Progressive Web Application text editor that runs in the browser. It function with or without an internet connection.
+A Progressive Web Application (PWA) text editor that runs in the browser. It function with or without an internet connection.
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue)]((https://opensource.org/licenses/MIT))
 
