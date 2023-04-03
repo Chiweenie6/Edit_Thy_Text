@@ -22,18 +22,7 @@ export const getDb = async () => {
   const request = store.getAll();
   const result = await request;
   console.log("result.value", result);
-  return result;
-};
-
-// Post text to the database
-export const postDb = async (content) => {
-  console.log("✔️ Post Text");
-  const jateDB = await openDB("jate", 1);
-  const newTransaction = jateDB.transaction("jate", "readwrite");
-  const store = newTransaction.objectStore("jate");
-  const request = store.add({ text: content });
-  const result = await request;
-  console.log("👍 Text saved to database", result);
+  return result.value;
 };
 
 // Put accepts some content and adds it to the database
@@ -42,22 +31,33 @@ export const putDb = async (content) => {
   const jateDB = await openDB("jate", 1);
   const newTransaction = jateDB.transaction("jate", "readwrite");
   const store = newTransaction.objectStore("jate");
-  const request = store.put({ text: content });
+  const request = store.put({ jate: content });
   const result = await request;
   console.log("Text saved to the database 🥳", result);
 };
 
+// Post text to the database
+// export const postDb = async (content) => {
+//   console.log("✔️ Post Text");
+//   const jateDB = await openDB("jate", 1);
+//   const newTransaction = jateDB.transaction("jate", "readwrite");
+//   const store = newTransaction.objectStore("jate");
+//   const request = store.add({ jate: content });
+//   const result = await request;
+//   console.log("👍 Text saved to database", result);
+// };
+
 // Delete text from the database
-export const deleteDb = async (id) => {
-  console.log("🔥 Delete from database");
-  const jateDB = await openDB("jate", 1);
-  const newTransaction = jateDB.transaction("jate", "readwrite");
-  const store = newTransaction.objectStore("jate");
-  const request = store.delete(id);
-  const result = await request;
-  console.log("result.value", result);
-  return result;
-};
+// export const deleteDb = async (id) => {
+//   console.log("🔥 Delete from database");
+//   const jateDB = await openDB("jate", 1);
+//   const newTransaction = jateDB.transaction("jate", "readwrite");
+//   const store = newTransaction.objectStore("jate");
+//   const request = store.delete(id);
+//   const result = await request;
+//   console.log("result.value", result);
+//   return result;
+// };
 
 // Initialize/start the database
 initdb();

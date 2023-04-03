@@ -26,7 +26,7 @@ module.exports = () => {
       // Webpack plugin to add service worker with source and destination
       new InjectManifest({
         swSrc: "./src-sw.js",
-        swDest: "service-worker.js",
+        swDest: "src-sw.js",
       }),
       // Webpack plugin to create manifest.json file
       new WebpackPwaManifest({
@@ -41,7 +41,7 @@ module.exports = () => {
         icons: [
           {
             src: path.resolve("src/images/logo.png"),
-            sizes: [72, 96, 128, 256],
+            sizes: [72, 96, 128, 256, 384, 512],
             destination: path.join("assets", "icons"),
           },
         ],
