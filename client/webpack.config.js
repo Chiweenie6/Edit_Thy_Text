@@ -36,8 +36,8 @@ module.exports = () => {
         description: "This is a text editor",
         background_color: "grey",
         theme_color: "blue",
-        start_url: "./",
-        publicPath: "./",
+        start_url: "/",
+        publicPath: "/",
         icons: [
           {
             src: path.resolve("src/images/logo.png"),

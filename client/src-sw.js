@@ -28,7 +28,7 @@ registerRoute(({ request }) => request.mode === "navigate", pageCache);
 
 // //Implementing asset caching
 
-console.log(pageCache + "🎈🎈🎈🎈");
+console.log("🎈🎈🎈🎈");
 
 registerRoute(
   ({ request }) => ["style", "script", "worker"].includes(request.destination),

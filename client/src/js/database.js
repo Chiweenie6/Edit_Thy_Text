@@ -37,12 +37,12 @@ export const postDb = async (content) => {
 };
 
 // Put accepts some content and adds it to the database
-export const putDb = async (id, content) => {
+export const putDb = async (content) => {
   console.log("Put in Database 🎈");
   const jateDB = await openDB("jate", 1);
   const newTransaction = jateDB.transaction("jate", "readwrite");
   const store = newTransaction.objectStore("jate");
-  const request = store.put({ id: id, text: content });
+  const request = store.put({ text: content });
   const result = await request;
   console.log("Text saved to the database 🥳", result);
 };
