@@ -31,7 +31,10 @@ This app allows the user to create text/texts. The texts are saved into the Inde
   
   ![image](https://user-images.githubusercontent.com/113393706/229638122-7f10e5f3-1dae-419a-a03f-6b050e6f5214.png)  
   
-  ![image](https://user-images.githubusercontent.com/113393706/229638216-73fc602c-ac38-41ff-a2a1-dc5bff2bbc61.png)
+  ![image](https://user-images.githubusercontent.com/113393706/229638216-73fc602c-ac38-41ff-a2a1-dc5bff2bbc61.png)  
+  
+  ![image](https://user-images.githubusercontent.com/113393706/229639428-827d6a2f-9cda-47e5-aad0-9b6d79d0282a.png)
+
 
 
 ## Installation
