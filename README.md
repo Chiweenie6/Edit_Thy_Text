@@ -1,5 +1,5 @@
 # Edit_Thy_Text
-A Progressive Web Application text editor that runs in the browser.
+A Progressive Web Application text editor that runs in the browser. It function with or without an internet connection.
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue)]((https://opensource.org/licenses/MIT))
 
@@ -22,8 +22,12 @@ A Progressive Web Application text editor that runs in the browser.
 ## Usage  
 This app allows the user to create text/texts. The texts are saved into the IndexedDB. The information in the IndexedDB can be retrieved with or without an internet connection. This app makes it possible for a user to relax when in an area that has unreliable internet. All their thoughts and ideas will be saved and retrieved regardless of an internet connection.
   
-  
   Images:  
+  ![image](https://user-images.githubusercontent.com/113393706/229637123-2b7c504f-c457-4a96-a23b-4867aa123e31.png)  
+  ![image](https://user-images.githubusercontent.com/113393706/229637582-42df3a82-4557-481e-9e24-71f7802f69e7.png)  
+  ![image](https://user-images.githubusercontent.com/113393706/229637839-374165d2-d71c-4c37-a402-42a3a6bece2f.png)  
+  ![image](https://user-images.githubusercontent.com/113393706/229638122-7f10e5f3-1dae-419a-a03f-6b050e6f5214.png)  
+  ![image](https://user-images.githubusercontent.com/113393706/229638216-73fc602c-ac38-41ff-a2a1-dc5bff2bbc61.png)
 
 
 ## Installation
