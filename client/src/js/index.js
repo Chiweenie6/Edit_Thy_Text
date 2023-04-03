@@ -23,14 +23,12 @@ if (typeof editor === "undefined") {
   loadSpinner();
 }
 
-window.addEventListener("load", () => {
 // Check if service workers are supported
 if ("serviceWorker" in navigator) {
   // register workbox service worker
-  const workboxSW = new Workbox("./src-sw.js");
+  const workboxSW = new Workbox("/src-sw.js");
   workboxSW.register();
-  console.log("🏴 Service Worker registered 🏴")
+  console.log("🏴 Service Worker registered 🏴");
 } else {
   console.error("🚫 Service workers are not supported in this browser 🚫.");
 }
-});

@@ -12,8 +12,6 @@ module.exports = () => {
     entry: {
       main: "./src/js/index.js",
       install: "./src/js/install.js",
-      editor: "./src/js/editor.js",
-      header: "./src/js/header.js",
     },
     output: {
       filename: "[name].bundle.js",
@@ -23,7 +21,7 @@ module.exports = () => {
       // Webpack plugin to add and generate HTML
       new HtmlWebpackPlugin({
         template: "./index.html",
-        title: "Webpack App",
+        title: "Edit Thy Text",
       }),
       // Webpack plugin to add service worker with source and destination
       new InjectManifest({

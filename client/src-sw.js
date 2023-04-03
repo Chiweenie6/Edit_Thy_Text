@@ -30,46 +30,40 @@ registerRoute(({ request }) => request.mode === "navigate", pageCache);
 
 console.log(pageCache + "🎈🎈🎈🎈");
 
-self.addEventListener("fetch", (event) => {
-  // Check if this is a navigation request
-  if (event.request.mode === "navigate") {
-    // Open the cache
-    event.respondWith(
-      caches.open(pageCache).then((cache) => {
-        // Check the network first
-        return fetch(event.request.url)
-          .then((fetchedResponse) => {
-            cache.put(event.request, fetchedResponse.clone());
+registerRoute(
+  ({ request }) => ["style", "script", "worker"].includes(request.destination),
+  new StaleWhileRevalidate({
+    cacheName: "asset-cache",
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+    ],
+  })
+);
 
-            return fetchedResponse;
-          })
-          .catch(() => {
-            // If the network is unavailable, get from cache
-            return cache.match(event.request.url);
-          });
-      })
-    );
-  } else {
-    return;
-  }
-});
+// self.addEventListener("fetch", (event) => {
+//   // Check if this is a navigation request
+//   if (event.request.mode === "navigate") {
+//     // Open the cache
+//     event.respondWith(
+//       caches.open(pageCache).then((cache) => {
+//         // Check the network first
+//         return fetch(event.request.url)
+//           .then((fetchedResponse) => {
+//             cache.put(event.request, fetchedResponse.clone());
 
-// Set up asset cache
-// registerRoute(
-//   // Here we define the callback function that will filter the requests we want to cache (in this case, JS and CSS files)
-//   ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
-//   new StaleWhileRevalidate({
-//     // Name of the cache storage.
-//     cacheName: 'page-cache',
-//     plugins: [
-//       // This plugin will cache responses with these headers to a maximum-age of 30 days
-//       new CacheableResponsePlugin({
-//         statuses: [0, 200],
-//       }),
-//     ],
-//   })
-// );
-
-
+//             return fetchedResponse;
+//           })
+//           .catch(() => {
+//             // If the network is unavailable, get from cache
+//             return cache.match(event.request.url);
+//           });
+//       })
+//     );
+//   } else {
+//     return;
+//   }
+// });
 
 registerRoute();
