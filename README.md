@@ -15,8 +15,7 @@ A Progressive Web Application (PWA) text editor that runs in the browser. It fun
 ## Description
   This application is a text editor that uses Webpack and its plugins to create a PWA (Progressive Web Application). This text editor runs in the browser and contains data persistance techiques. One technology used is Babel, which allows the app to run in a browser that may not be up to date or lack the ability to run the app. This app also uses npm idb to cache data into IndexedDB API, so the app can use the cached data to run offline.
   
-  Deployed App Link:   
-  
+  Deployed App Link:  https://edit-thy-text.herokuapp.com/
 
 
 ## Usage  
